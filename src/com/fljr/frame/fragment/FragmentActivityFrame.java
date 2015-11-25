@@ -110,6 +110,8 @@ public class FragmentActivityFrame extends android.support.v4.app.FragmentActivi
 	public void doBack(){
 		if(stack!=null&&stack.size()>0){
 			removeFragement(stack.pop());
+		}else{
+			this.finish();
 		}
 	}
 	/**
@@ -194,12 +196,12 @@ public class FragmentActivityFrame extends android.support.v4.app.FragmentActivi
 		titleLayout.addView(titleView);
 		baseLayout.addView(titleLayout);
 		imgBack=(ImageView) titleLayout.findViewById(R.id.titleLeftImageView);
-		imgBack.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				doBack();
-			}
-		});
+			imgBack.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					doBack();
+				}
+			});
 	}
 	
 	public void setTitleBackImage(int resId){
