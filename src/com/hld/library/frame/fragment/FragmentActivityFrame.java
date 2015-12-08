@@ -49,6 +49,8 @@ public class FragmentActivityFrame extends android.support.v4.app.FragmentActivi
 		EventUtils.registOne(this);
 		stack=new Stack<FragmentFrame>();
 		singles=new Stack<Class<?>>();
+
+		initTitleViews();
 		
 	}
 	/**
@@ -234,6 +236,7 @@ public class FragmentActivityFrame extends android.support.v4.app.FragmentActivi
 		titleLayout.removeAllViews();
 		titleLayout.addView(view);
 	}
+	
 	public void setTitleBackground(int resId){
 		titleLayout.setBackgroundResource(resId);
 	}
@@ -246,18 +249,17 @@ public class FragmentActivityFrame extends android.support.v4.app.FragmentActivi
 	}
 	
 	public void setTitleLeftView(View view) {
-		if(view!=null){
 			setTitleViewBase(view, R.id.titleLeftLayout);
-		}
 	}
 	public void setTitleRightView(View view){
-		if(view!=null)
 			setTitleViewBase(view, R.id.titleRightLayout);
 	}
 	private void setTitleViewBase(View view,int id){
 		RelativeLayout titleView=(RelativeLayout) titleLayout.findViewById(id);
 		titleView.removeAllViews();
-		titleView.addView(view);
+		if(view!=null){
+			titleView.addView(view);
+		}
 	}
 	
 	public void showTitleBackButton(){
@@ -292,7 +294,6 @@ public class FragmentActivityFrame extends android.support.v4.app.FragmentActivi
 	}
 	@Override
 	public void setContentView(View view, LayoutParams params) {
-		initTitleViews();
 		view.setLayoutParams(params);
 		baseLayout.addView(view);
 		super.setContentView(baseLayout, params);

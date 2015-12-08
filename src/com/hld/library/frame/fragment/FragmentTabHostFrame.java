@@ -161,6 +161,8 @@ public class FragmentTabHostFrame extends RelativeLayout{
 			isFristAddTab=false;
 		}
 	}
+
+	
 	
 	public void setTabBackgroundResource(int resid){
 		tabLayout.setBackgroundResource(resid);
@@ -243,6 +245,28 @@ public class FragmentTabHostFrame extends RelativeLayout{
 		listTabSpec.add(tab);
 		ll.setOnClickListener(tabOnclick);
 		tabLayout.addView(ll);
+	}
+	public void removeAllTab(){
+		listTabSpec.clear();
+		mapCls.clear();
+		tabLayout.removeAllViews();
+		
+	}
+	public void removeTab(TabSpec tab){
+		mapCls.remove(tab);
+		removeTabView(tab);
+	}
+	
+	private void removeTabView(TabSpec tab){
+		listTabSpec.remove(tab);
+//		tabLayout.getChildCount()
+		for (int i = 0; i < tabLayout.getChildCount(); i++) {
+			View v=tabLayout.getChildAt(i);
+			if(v.getTag()!=null&&v.getTag() instanceof TabSpec&&tab.equals(v.getTag())){
+				tabLayout.removeView(v);
+				break;
+			}
+		}
 	}
 	
 	private OnClickListener tabOnclick=new OnClickListener() {
@@ -346,6 +370,9 @@ public class FragmentTabHostFrame extends RelativeLayout{
 	}
 	public void setOnItemSelectListener(OnItemSelectListener listener) {
 		this.listener=listener;
+		if(listener!=null){
+			listener.onItemSelect(postion, null, null);
+		}
 	}
 	
 	public interface OnItemSelectListener{

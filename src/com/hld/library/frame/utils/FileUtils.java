@@ -41,7 +41,7 @@ public class FileUtils {
 	 */
 	public static File getFileInstance(String filePath){
 		if(filePath==null) return null;
-		File file=new File(getSDCardRoot()+filePath);
+		File file=new File(filePath);
 		if(!file.exists()){
 			try {
 				String tem=filePath.substring(0, filePath.lastIndexOf("/"));
@@ -52,6 +52,9 @@ public class FileUtils {
 			}
 		}
 		return file;
+	}
+	public static File getFileInstanceinSdcard(String filePath){
+		return getFileInstance(getSDCardRoot()+filePath);
 	}
 	/**
 	 * 获取文件对象，不用传sd卡的路径<br/>
@@ -68,7 +71,7 @@ public class FileUtils {
 	 */
 	public static boolean createFileDirectory(String filePath){
 		if(filePath==null) return false;
-		File file=new File(getSDCardRoot()+filePath);
+		File file=new File(filePath);
 		if(!file.exists()){
 			return file.mkdirs();
 		}
