@@ -59,6 +59,7 @@ public class FragmentTabHostFrame extends RelativeLayout{
 	private int textsColor=Color.BLACK;
 	private int textsSize=0;
 
+	private OnItemBeforeSelectListener beforeListener=null;
 	
 	private void init(Context context) {
 		contentId=hashCode();
@@ -303,7 +304,12 @@ public class FragmentTabHostFrame extends RelativeLayout{
 			((ImageView)iv).setImageResource(resId);
 		}
 	}
+	
+	
 	public void setPostion(int p) {
+		if(beforeListener!=null&&!beforeListener.onBeforeSelect(p)){
+			return;
+		}
 		View itemView=tabLayout.getChildAt(p);
 		if(itemView==null)return;
 		TabSpec tab = (TabSpec) itemView.getTag();
@@ -373,6 +379,14 @@ public class FragmentTabHostFrame extends RelativeLayout{
 		if(listener!=null){
 			listener.onItemSelect(postion, null, null);
 		}
+	}
+	
+	public void setOnItemBeforeSelectListener(OnItemBeforeSelectListener beforeListener) {
+		this.beforeListener=beforeListener;
+	}
+	
+	public interface OnItemBeforeSelectListener{
+		public boolean onBeforeSelect(int p);
 	}
 	
 	public interface OnItemSelectListener{
