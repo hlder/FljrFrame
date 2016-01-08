@@ -251,7 +251,7 @@ public class FragmentTabHostFrame extends RelativeLayout{
 		listTabSpec.clear();
 		mapCls.clear();
 		tabLayout.removeAllViews();
-		
+		isFristAddTab=true;
 	}
 	public void removeTab(TabSpec tab){
 		mapCls.remove(tab);

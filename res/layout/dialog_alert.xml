@@ -12,7 +12,7 @@
     	android:paddingTop="50dip"
     	android:paddingBottom="50dip"
     	android:text="阿萨当前"/>
-    <View android:id="@+id/line" style="@style/LineVerticalFrame" android:layout_below="@id/message"/>
+    <View android:id="@+id/line" style="@style/LineVerticalFrame" android:layout_below="@+id/message"/>
     <LinearLayout 
         android:layout_width="match_parent"
     	android:layout_height="wrap_content"

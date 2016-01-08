@@ -82,6 +82,9 @@ public class ViewPagerFragmentTabHost implements OnClickListener,OnPageChangeLis
 	public void setOffscreenPageLimit(int limit) {
 		viewPager.setOffscreenPageLimit(limit);
 	}
+	public void setCurrentItem(int item){
+		viewPager.setCurrentItem(item);
+	}
 	public void addTab(Tab v) {
 		listTabs.add(v);
 		v.setLayoutParams(weightParam);
