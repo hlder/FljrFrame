@@ -186,10 +186,7 @@ public class DownLoadUtils {
 					startDown(tag);
 					boolean isStart=false;
 					// 设置断点续传的开始位置 
-					try{
-						con.setRequestProperty("RANGE","bytes="+skip+"-"+max); 
-					}catch(IllegalStateException e){
-					}
+					con.setRequestProperty("RANGE","bytes="+skip+"-"+max); 
 					// 输入流   
 					 is = con.getInputStream();
 					while ((len = is.read(bs)) != -1) {

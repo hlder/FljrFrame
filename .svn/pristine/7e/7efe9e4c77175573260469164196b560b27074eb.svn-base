@@ -5,7 +5,6 @@ import java.util.List;
 import android.content.Context;
 
 import net.tsz.afinal.FinalDb;
-import net.tsz.afinal.FinalDb.DbUpdateListener;
 import net.tsz.afinal.db.sqlite.DbModel;
 
 /**
@@ -46,54 +45,6 @@ public class DbUtils{
 		}
 		return du;
 	}
-	
-	protected static DbUtils create(Context context,String targetDirectory, String dbName,boolean isDebug,int dbVersion,DbUpdateListener dbUpdateListener) {
-		if(du==null){
-			du=new DbUtils();
-		}
-		if(du.db==null){
-			du.db=FinalDb.create(context, targetDirectory, dbName, isDebug, dbVersion, dbUpdateListener);
-		}
-		return du;
-	}
-	protected static DbUtils create(Context context, String dbName,boolean isDebug,int dbVersion,DbUpdateListener dbUpdateListener) {
-		if(du==null){
-			du=new DbUtils();
-		}
-		if(du.db==null){
-			du.db=FinalDb.create(context, dbName, isDebug, dbVersion, dbUpdateListener);
-		}
-		return du;
-	}
-	protected static DbUtils create(Context context, String dbName,boolean isDebug) {
-		if(du==null){
-			du=new DbUtils();
-		}
-		if(du.db==null){
-			du.db=FinalDb.create(context, dbName, isDebug);
-		}
-		return du;
-	}
-	protected static DbUtils create(Context context,String targetDirectory, String dbName) {
-		if(du==null){
-			du=new DbUtils();
-		}
-		if(du.db==null){
-			du.db=FinalDb.create(context,targetDirectory, dbName);
-		}
-		return du;
-	}
-	protected static DbUtils create(Context context,String targetDirectory, String dbName,boolean isDebug) {
-		if(du==null){
-			du=new DbUtils();
-		}
-		if(du.db==null){
-			du.db=FinalDb.create(context,targetDirectory, dbName, isDebug);
-		}
-		return du;
-	}
-	
-	
 	public void save(Object entity) {
 		db.save(entity);
 	}

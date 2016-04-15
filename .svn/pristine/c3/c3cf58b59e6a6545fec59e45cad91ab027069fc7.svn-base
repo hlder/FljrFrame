@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FragmentLibrary</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+	
+    <string name="library_refresh_top">下拉刷新</string>
+    <string name="library_refresh_bottom">加载更多</string>
+    <string name="library_refreshing">正在刷新...</string>
+    <string name="library_refresh_start">松开刷新</string>
+    <string name="library_refresh_time">上次更新时间:</string>
+    <string name="library_loadmore_start">松开加载</string>
+    <string name="library_loadmore_doing">正在加载...</string>
+    <string name="library_loadmore_nodata">没有更多了</string>
+    <string name="library_loadmore_error">加载失败，请重试</string>
+    
+    
+    <string name="exception_fragmenttabhost_tabspec_null">TabSpec不能为空</string>
+    <string name="exception_fragmenttabhost_tabspec_info_null">TabSpec至少需要输入name</string>
+    
+    
+    
+    <string name="library_download_error_net">网络错误,下载失败</string>
+    <string name="library_download_error_lose_data">数据丢失,下载失败</string>
+    <string name="library_download_error_exist">TAG已经存在</string>
+    
+    
+</resources>
